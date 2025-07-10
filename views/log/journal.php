@@ -1,0 +1,31 @@
+{{ include('layouts/header.php', {title: 'Membres'})}}
+    
+    <div class="hero"></div> 
+     <h1>Journal de log</h1>
+     <div class="grille">
+        <table>
+        {% if session.idRole == 2%}
+            <tr>
+                <th>Prénom</th>            
+                <th>Nom</th>            
+                <th>Surnom</th> 
+                <th>Profil</th>                
+            </tr>
+            {% for member in members %}                      
+                <tr>                        
+                    <td>{{ member.prenom}} </td>
+                    <td>{{ member.nom}}</td>
+                    <td>{{ member.pseudonyme}}</td>                    
+                <td><a href="{{base}}/member/show?id={{member.id}}">Voir le profil</a></td>                
+                </tr>
+                {% endfor %}
+            {% endif %}
+            </table>         
+        <br><br>
+    </div>
+    {% if guest is empty %}
+    <a class="bouton" href="{{base}}/member/create">Je m'inscris</a>
+    {% endif %}
+    
+
+    {{ include('layouts/footer.php')}}

@@ -1,0 +1,5 @@
+.carte {
+    box-sizing: border-box;
+    width:max-content;
+    color: rgba(248, 76, 85, 0.63);    
+}
