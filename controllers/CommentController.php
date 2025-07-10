@@ -5,6 +5,7 @@ use App\Models\Member;
 use App\Models\Recipe;
 use App\Providers\View;
 use App\Providers\Validator;
+use App\Providers\Auth;
 
 class CommentController{
 
@@ -77,15 +78,19 @@ class CommentController{
         } else {
             return View::render('error', ['message'=>'404 not found!']);
         }
-    }
+    }    
 
     public function edit($data){
+        Auth::session();
         if(isset($data['id']) && $data['id']!=null){
             $comment = new Comment;
-            $selectId = $comment->selectId($data['id']); 
-            $selectId = $comment->selectId($data['id']);            
+            $selectId = $comment->selectId($data['id']);
+            $member = new member;
+            $members = $member->select();           
+            $recipe = new recipe;
+            $recipes = $recipe->select();           
             if($selectId){
-                return View::render('comment/edit', ['comment'=>$selectId]);
+                return View::render('comment/edit', ['comment'=>$selectId, 'members'=>$members, 'recipes'=>$recipes]);
             }else{
                 return View::render('error', ['message'=>'Commentaire introuvable!']);
             }

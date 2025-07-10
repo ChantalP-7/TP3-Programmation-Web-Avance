@@ -1,8 +1,7 @@
 
 {{ include('layouts/header.php', {title: 'Membres'})}}
 
-        <div class="hero"></div>   
-        {% if session.idRole == 3%}      
+        <div class="hero"></div>      
         <h1>Bienvenue {{ member.prenom}} !</h1>
         <div class="div-un-article">
             <h3>Mon Profil</h3>
@@ -16,7 +15,6 @@
                     <input type="hidden" name="id" value="{{ member.id }}">
                     <button type="submit" class="bouton tomato">Supprimer</button>
                 </form>
-                {% endif %}
             </div>
         </div>
 {{ include('layouts/footer.php')}}

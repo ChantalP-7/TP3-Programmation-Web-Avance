@@ -1,7 +1,14 @@
 
 
 {{ include('layouts/header.php', {title: 'Recettes'})}}
-    <div class="hero"></div>   
+    <div class="hero"></div> 
+    <div class="bienvenue">
+<span>
+            {% if guest is empty %}            
+                Bonjour {{ session.prenom }} !
+            {% endif %}
+        </span>
+</div>  
     <nav class="secondaire">
         <ul>
             <li><a href="breakfast.php">Déjeuners</a></li>                    

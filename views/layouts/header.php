@@ -13,14 +13,18 @@
         <ul>
             <li><a href="{{base}}/recipes">Recettes</a></li>
             <li><a href="{{base}}/comments">Commentaires</a></li>
-            <li><a href="{{base}}/members">Membres</a></li>
+            {% if session.idRole == 2 %}
+            <li><a href="{{base}}/members">Tous les membres Membres</a></li>
+            <li><a href="{{base}}/member/create">Inscription membres</a></li>
+            {% endif %}
         </ul>
         <ul>
             {% if session.idRole == 1 %}
             <li><a href="{{base}}/user/create">Inscription utilisateur</a></li>
             {% endif %}
-                
+            {% if session.idRole == 2 %}   
             <li><a href="{{base}}/users">Voir les utilisateurs à inscrire</a></li>
+            {% endif %}
         </ul> 
         <ul>
             {% if guest %}
@@ -29,14 +33,6 @@
             <li><a href="{{base}}/logout">Déconnexion</a></li>
              {% endif %}
         </ul>
-        
     </nav>      
 </header>
-<div class="bienvenue">
-<span>
-            {% if guest is empty %}
-                Bonjour {{ session.username }} !
-            {% endif %}
-        </span>
-</div>
 <main>

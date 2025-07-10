@@ -37,12 +37,17 @@
             {% if errors.dateCommentaire is defined %}
                 <span class="error">{{errors.dateCommentaire}}</span>
             {% endif %}                       
-            <label for="idMembre">Ton id</label>                
-                <input type="number" id="idMembre" name="idMembre" value="">            
+            <label for="idMembre">Ton id</label> 
+                <input type="number" id="idMembre" name="idMembre" value="{{member.id}}">  
+                         
             {% if errors.idMembre is defined %}
                 <span class="error">{{errors.idMembre}}</span>
-            {% endif %}   
-                <input type="number" id="idRecette" name="idRecette" value="{{recipe.id}}">            
+            {% endif %}  
+            
+            <label for="idRecette">Le id de la recette</label> 
+            
+                <input type="number" id="idRecette" name="idRecette" value="{{recipe.id}}">  
+                     
             {% if errors.idRecette is defined %}
                 <span class="error">{{errors.idRecette}}</span>
             {% endif %}                         

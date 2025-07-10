@@ -36,11 +36,15 @@
 {% endfor %}
     </div>                
         <div class="trois-boutons">
-            <a href="{{base}}/recipe/edit?id={{ recipe.id }}" class="bouton">Modifier la recette</a>           
-            <a href="{{base}}/comment/create?idRecette={{recipe.id}}" class="bouton">Commenter la recette</a>
+        {% if session.idRole == 3 %}
+            <a href="{{base}}/recipe/edit?id={{ recipe.id }}" class="bouton">Modifier la recette</a> 
+            
             <form class="no-border" action="{{ base }}/recipe/delete" method="post">
                 <input type="hidden" name="id" value="{{recipe.id}}">
                 <input type="submit" class="bouton tomato" value="Supprimer la recette"></input>
             </form>
+           
+            {% endif %}
+            <a href="{{base}}/comment/create?idRecette={{recipe.id}}" class="bouton">Commenter la recette</a>
         </div>
         {{ include('layouts/footer.php')}}

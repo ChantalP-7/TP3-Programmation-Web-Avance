@@ -12,11 +12,10 @@ use App\Providers\View;
 use App\Providers\Validator;
 
 class RecipeController {
-    /*public function __construct(){
+    public function __construct(){
         Auth::session();
-        Auth::role(3);
-    }*/
-
+        //Auth::role(3);
+    }
 
     public function index(){
         $recipe = new Recipe;
@@ -68,8 +67,6 @@ class RecipeController {
         $members = $member->select();
         $categorie = new Categorie;
         $categories = $categorie->select(); 
-        // print_r($privileges);
-        // die();
         return View::render('recipe/create', ['members' => $members,'categories' => $categories]);
     }
 
@@ -77,7 +74,6 @@ class RecipeController {
         Auth::session();
         $validator = new Validator; 
         $member = new Member;
-        //']);       
         $validator->field('titre',$data['titre'])->min(2)->max(45)->required();
         $validator->field('ingredient',$data['ingredient'])->max(1000)->required();
         $validator->field('instruction',$data['instruction'])->max(1000);

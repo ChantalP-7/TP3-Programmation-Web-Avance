@@ -26,13 +26,6 @@ class UserController {
     }     
 
     public function store($data){
-        // $user = new User;
-        // $unique = $user->unique('username', $data['username']);
-        // if($unique){
-        // print_r($unique);
-        // }else{
-        //     echo "error";
-        // }
 
         $validator = new Validator;
         $validator->field('prenom', $data['prenom'])->min(2)->max(45);
@@ -49,12 +42,22 @@ class UserController {
             return View::redirect('login');
         }else{
             $errors = $validator->getErrors();
-            // print_r($errors);
             $role = new Role;
             $roles = $role->select();
             return View::render('user/create', ['errors'=>$errors, 'user'=>$data,'roles' => $roles]);
         }
 
+    }
+
+    public function delete($data){
+        Auth::session();
+        $user = new User;
+        $delete = $user->delete($data['id']);
+        if($delete){
+            return View::redirect('users');
+        }else{
+            return View::render('error', ['message'=>'404 page introuvable !']);
+        }
     }
 
     

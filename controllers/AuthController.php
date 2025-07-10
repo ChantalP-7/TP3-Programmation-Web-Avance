@@ -16,8 +16,6 @@ class AuthController{
          if($validator->isSuccess()){
             $user = new User;
             $checkuser = $user->checkUser($data['username'], $data['password']);
-           /* echo $checkuser;
-                die();*/
             if($checkuser){
                 
                 return View::redirect('user/create');

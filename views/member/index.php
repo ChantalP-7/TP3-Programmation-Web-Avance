@@ -4,7 +4,7 @@
      <h1>Membre</h1>
      <div class="grille">
         <table>
-        {% if session.idRole == 2%}
+        {% if session.idRole == 2 and session.id == member.id %}
             <tr>
                 <th>Prénom</th>            
                 <th>Nom</th>            

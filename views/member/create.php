@@ -11,26 +11,28 @@
     </div>
     {% endif %}
     <form class="formulaire" action="" method="post">
-        <h2>Inscription de {{ user.prenom }}</h2>
+        <h2>Inscription de membre</h2>
         <label>Prénom</label>
-        <input type="text" name="prenom">            
+        <input type="text" name="prenom" value="{{ member.prenom }}">            
         {% if errors.prenom is defined %}
             <span class="error">{{errors.prenom}}</span>
         {% endif %}
         <label>Nom</label>                
-            <input type="text" name="nom">            
+            <input type="text" name="nom" value="{{ membr.nom }}">            
         {% if errors.nom is defined %}
             <span class="error">{{errors.nom}}</span>
         {% endif %}
         <label>Pseudo</label>
-            <input type="text" name="pseudonyme">            
+            <input type="text" name="pseudonyme" value="{{ member.pseudonyme }}">            
         {% if errors.pseudonyme is defined %}
             <span class="error">{{errors.pseudonyme}}</span>
         {% endif %}
         <label>Téléphone</label>
-            <input type="text" name="telephone">
-        <label>Id Utilisateur</label>
-            <input type="number" name="idUtilisateur">         
+            <input type="text" name="telephone" value="{{ member.telephone }}">
+            {% if errors.telephone is defined %}
+            <span class="error">{{errors.telephone}}</span>
+        {% endif %}
+                             
         <input type="submit" class="bouton" value="Soumettre">
     </form>
     </div>

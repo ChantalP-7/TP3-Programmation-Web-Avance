@@ -495,7 +495,7 @@ input[type="checkbox"] {
 }
 
 
-input[type="checkbox"]:checked value {
+input[name="etoiles"]:checked  {
     color: gold;
 }
 

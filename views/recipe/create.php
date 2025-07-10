@@ -35,8 +35,7 @@
             {% endif %} 
                             
             <label for="idMembre"></label>                
-                <input type="hidden" id="idMembre" name="idMembre" value="" required>
-            {% endif %}
+                <input type="" id="idMembre" name="idMembre" value="{{member.id}}" required>
             {% if errors.idMembre is defined %}
                 <span class="error">{{errors.idMembre}}</span>
             {% endif %}                         
